@@ -40,7 +40,7 @@ function Header() {
 
   // Navigation Links
   const Links = [
-    { name: "Home", href: '#Header'  },
+    { name: "Home", href: '/#'  },
     { name: "About us", href: '#About'  },
     { name: "Services", href: '#Service' },
     { name: "Projects", href: '#Projects' },
@@ -57,7 +57,8 @@ function Header() {
               : "absolute bg-[rgba(39,39,40,0.52)] md:bg-transparent md:backdrop-blur-md"
           }`}
         >
-          {logo}
+          <a href="#Header">
+          {logo}</a>
 
           {/* Navigation Links */}
           <ul
@@ -66,7 +67,8 @@ function Header() {
             }`}
           >
             <span className="md:hidden flex justify-center pt-4 pb-16">
-              <img src={logo1} className="w-28" alt="Mobile Logo" />
+              <a href="#Header"  onClick={() => setOpen(false)}>
+              <img src={logo1} className="w-28" alt="Mobile Logo" /></a>
             </span>
             {Links.map((link) => (
               <li
