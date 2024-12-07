@@ -2,13 +2,44 @@ import React from "react";
 import logo from "./assets/logo2.png"; // Replace with your logo's actual path
 import bg from './assets/footer.png';
 import {motion} from 'motion/react';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast,ToastContainer } from "react-toastify";
+
 const Footer = () => {
+    const [result, setResult] = React.useState("");
+
+    const onSubmit = async (event) => {
+      event.preventDefault();
+      setResult("Sending....");
+      const formData = new FormData(event.target);
+  
+      formData.append("access_key", "523390e2-41af-4cc8-8c4e-89fd408a2b44");
+  
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+  
+      const data = await response.json();
+  
+      if (data.success) {
+        setResult("");
+        toast.success("We will get Back you soon!")
+        event.target.reset();
+      } else {
+        console.log("Error", data);
+        toast.error(data.message)
+        setResult("");
+      }
+    };
+
   return (
-    <>
+    <><ToastContainer />
     <motion.div 
     initial={{opacity:0}}
     transition={{duration:1.5}}
     whileInView={{opacity:1}}>
+        
     <footer className=" text-gray-300" style={{
         backgroundImage:`linear-gradient(-5deg,rgba(0,0,0,0.8),rgba(0,0,0,0.6),rgba(0,0,0,0.9)),url(${bg})`,
         backgroundSize: 'cover', // Ensures the image covers the entire div
@@ -48,8 +79,8 @@ const Footer = () => {
           {/* Contact Details */}
           <div>
             <h3 className="text-white font-bold text-lg">Get in Touch</h3>
-            <p className="mt-2">No.1113/1B,1, Dalupitiya Road, Sri Lanka, 11300</p>
-            <p>Email: <a href="mailto:amsolutions376@gmail.com" className="hover:text-blue-400">amsolutions376@gmail.com</a></p>
+            <p className="mt-2"><a href="https://www.google.com/maps/@6.9908866,79.9073102,20.18z?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank">No.1113/1B,1, Dalupitiya Road, Sri Lanka, 11300</a></p>
+            <p>Email: <a href="mailto:amsolutions28@gmail.com" className="hover:text-blue-400">amsolutions28@gmail.com</a></p>
             <p><a href="tel:+94787987255"> Phone: +94 (78) 7987 255</a></p>
           </div>
 
@@ -76,16 +107,22 @@ const Footer = () => {
             <p className="mt-2 text-sm">
               Need web, mobile development, or computer repairs? Share your email, and we’ll contact you!
             </p>
-            <div className="mt-4 flex">
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full px-4 py-2 bg-[rgb(0,0,0,0.7)] text-gray-300  focus:outline-none"
-              />
-              <button className="px-4 bg-cyan-900 text-white border-2 border-transparent  hover:bg-blue-600 transition">
-                Send
-              </button>
-            </div>
+            <div className="mt-4 flex flex-row items-center space-x-2"> {/* Added 'items-center' and 'space-x-2' */}
+  <form onSubmit={onSubmit} className="flex flex-row items-center space-x-2"> {/* Ensure the form elements are in a row */}
+    <input type="hidden" value="New user Joined!" name="Joined" />
+    <input
+      type="email"
+      name="Email"
+      placeholder="Email Address"
+      className="w-48 px-4 py-2 bg-[rgb(0,0,0,0.7)] text-gray-300 focus:outline-none" required
+    />
+    <button type="submit" className="px-4 py-2 bg-cyan-900 text-white hover:bg-blue-600 duration-500">
+      {result ? result : "Send"}
+    </button>
+  </form>
+</div>
+<br /><br />
+
           </div>
         </div>
       </div>
@@ -93,7 +130,7 @@ const Footer = () => {
       {/* Reserved Rights Section */}
       <div className="bg-gray-800 py-4">
         <div className="max-w-6xl mx-auto px-4 text-center text-sm text-gray-400">
-          © 2024 Your Company Name. All rights reserved.
+          © 2024 Your AM Solutions. All rights reserved.
         </div>
       </div>
     </footer></motion.div></>

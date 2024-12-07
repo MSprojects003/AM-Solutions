@@ -1,6 +1,6 @@
 import React from 'react';
 import Topic from './Topic';
-import { FaLaptopCode, FaMobileAlt, FaPaintBrush, FaPalette, FaUserTie, FaShoppingCart, FaCode, FaDesktop } from 'react-icons/fa';
+import { FaLaptopCode, FaMobileAlt,FaCog, FaPaintBrush,FaFilm, FaPalette, FaUserTie, FaShoppingCart, FaCode, FaDesktop } from 'react-icons/fa';
 import { motion } from "motion/react";
 import { Md10Mp } from 'react-icons/md';
 import { feDropShadow } from 'motion/react-client';
@@ -14,6 +14,9 @@ import softwared from './assets/softwared.jpg';
 import desktopd from './assets/desktopd.jpg';
 import assignmenthelp from './assets/assignmenthelp.jpg';
 import bg4 from './assets/bg4.jpg';
+import ve from './assets/video Editing.jpg';
+import cr from './assets/cr.webp';
+import mr from './assets/mr.avif';
 // Service data with icons and descriptions
 const services = [
   {
@@ -69,6 +72,24 @@ const services = [
     icon: <FaLaptopCode />,
     bg:assignmenthelp,
     description: 'Innovative final and semester projects for Software Engineering and IT.',
+  },
+  {
+    title: 'Video Editing',
+    icon: <FaFilm />,
+    bg:ve,
+    description: 'Professional video editing services for all types of projects.' ,
+  },
+  {
+    title: 'Computer Hardware Repairing',
+    icon: <FaCog/>,
+    bg:cr,
+    description: 'Repair and maintenance for all computer hardware issues.',
+  },
+  {
+    title: 'Mobile Phones Repairing',
+    icon: <FaMobileAlt />,
+    bg:mr,
+    description: 'Expert repair services for all mobile phone brands and models.',
   },
 ];
 

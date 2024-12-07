@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import contact from './assets/contact.png';
 import bg5 from './assets/bg4.jpg';
 import {motion} from 'motion/react';
-import Footer from './Footer';
+ 
 
 
 function Contact() {
@@ -147,16 +147,17 @@ viewport={{once:true}}>
               <div className="flex flex-col gap-4 items-start ">
                 <div className="flex items-center mb-4 ">
                   <FaMapMarkerAlt className="text-2xl mr-3" />
-                  <span className="text-lg sm:text-sm md:text-lg text-green-100 text-shadow">No.1113/1B,1 , Dalupitiya Road,Hunupitiya,Wattala</span>
+                  <a href="https://www.google.com/maps/@6.9908866,79.9073102,20.18z?entry=ttu&g_ep=EgoyMDI0MTIwNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" className="text-blue-500 hover:text-blue-700">
+                  <span className="text-lg sm:text-sm md:text-lg text-green-100 text-shadow">No.1113/1B,1, Dalupitiya Road, Sri Lanka, 11300</span></a>
                 </div>
                 <div className="flex items-center mb-4">
                   <FaPhoneAlt className="text-2xl mr-3 " />
-                  <a href="tel:+94787987255">
+                  <a href="tel:+94787987255" target='_blank'>
                   <span className="text-lg sm:text-sm md:text-lg text-green-100 text-shadow">+1 123 456 789</span></a>
                 </div>
                 <div className="flex items-center mb-4">
                   <FaEnvelope className="text-2xl mr-3" />
-                  <a href="mailto:amsolutions28@gmail.com">
+                  <a href="mailto:amsolutions28@gmail.com" target='_blank'>
                   <span className="text-lg sm:text-sm md:text-lg text-green-100 text-shadow">amsolutions28@gmail.com</span></a>
                 </div>
                
@@ -183,7 +184,7 @@ viewport={{once:true}}>
 
   {/* WhatsApp */}
   <a
-    href="https://wa.me/94787987255"
+    href="https://wa.me/94787987255" target='_blank'
     className="bg-gray-100 text-green-500 w-10 h-10 flex items-center justify-center rounded-full hover:bg-green-500 hover:text-white duration-500"
   >
     <FaWhatsapp />
@@ -209,7 +210,7 @@ viewport={{once:true}}>
   href="https://wa.me/94787987255" // Replace with your number
   target="_blank"
   rel="noopener noreferrer"
-  className="fixed bottom-14 right-8 scale-150 bg-gradient-to-tr from-green-600 to-green-700 text-white p-2 rounded-full shadow-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-green-900 hover:to-green-800 duration-300 transition  hover:text-gray-100 hover:shadow:md hover:shadow-[rgb(0,0,0,0.4)]"
+  className="fixed bottom-10 right-6 scale-150 bg-gradient-to-tr from-green-600 to-green-700 text-white p-2 rounded-full shadow-lg flex items-center justify-center hover:bg-gradient-to-br hover:from-green-900 hover:to-green-800 duration-300 transition  hover:text-gray-100 hover:shadow:md hover:shadow-[rgb(0,0,0,0.4)]"
   title="Chat with us on WhatsApp"
 >
   <FaWhatsapp className="text-2xl" />

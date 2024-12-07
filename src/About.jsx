@@ -33,19 +33,19 @@ const isDesktop = window.innerWidth >=768;
 
 
     <motion.div 
-    initial={{translateX:-100}}
-    transition={{duration:1.5}}
-    whileInView={{translateX:0}}
+    initial={isDesktop?{translateX:-100}:{translateY:100}}
+    transition={isDesktop?{duration:1.5}:{duration:0.6}}
+    whileInView={isDesktop?{translateX:0}:{translateY:0}}
     viewport={{once:true}}
     >
-      <div className=" py-10 flex flex-col md:flex-row md:px-16 px-6">
+      <div className=" py-10 flex flex-col md:flex-row md:px-16 px-8">
         {/* Left Section with Image */}
       
-        <div className="relative w-full md:w-80 mb-8 md:mb-0 mx-auto">
+        <div className="relative flex justify-center w-full md:w-80 mb-8 md:mb-0 mx-auto">
         <motion.div 
-    initial={{opacity:0.3  , translateX:-100}}
+    initial={isDesktop?{opacity:0.3  , translateX:-100}:{opacity:0.4, translateY:-20}}
     transition={{duration:0.7}}
-    whileInView={{opacity:1, translateX:0}}
+    whileInView={isDesktop?{opacity:1, translateX:0}:{opacity:1,translateY:0}}
     viewport={{once:true}}
     
     
@@ -53,7 +53,7 @@ const isDesktop = window.innerWidth >=768;
           <img 
   src={db} 
   alt="Mohammed Atheef"
-  className="rounded-sm shadow-xl w-full h-auto" 
+  className="rounded-sm shadow-xl md:w-full w-80  md:h-auto" 
   style={{
     maskImage: window.innerWidth >= 768 
       ? 'linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%)' 

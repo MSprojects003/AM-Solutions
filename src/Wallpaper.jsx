@@ -15,7 +15,7 @@ function Wallpaper() {
          <motion.div
          initial={{opacity:0, y:100}}
          transition={{duration:1.5}}
-         whileInView={{opacity:2, y:0}}
+         whileInView={{opacity:2, y:-20}}
          viewport={{once:true}}
          >
           <span 
@@ -24,7 +24,7 @@ function Wallpaper() {
           </span>
           </motion.div>
           {/* Buttons section */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-6 sm:mt-10 text-lg sm:text-xl md:text-2xl font-mono">
+          <div className="flex  flex-col sm:flex-row gap-8 md:gap-4 mt-6 sm:mt-10 text-lg sm:text-xl md:text-2xl font-mono">
           <motion.span 
               
               initial={{opacity:0 ,translateX:-100}}

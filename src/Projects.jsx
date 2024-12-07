@@ -27,7 +27,7 @@ const isDesktop=window.innerWidth >= 768;
 const ProjectCard = ({ project }) => (
     
     <div className='m-10'>
-  <div className="bg-transparent  rounded-sm flex justify-center overflow-hidden shadow-lg shadow-[rgba(23,24,23,0.67)] hover:scale-105 transition-transform duration-300">
+  <div className="bg-transparent flex justify-center overflow-hidden md:shadow-lg md:shadow-[rgba(23,24,23,0.67)] hover:scale-105 transition-transform duration-300">
   <motion.div
     
     initial={isDesktop?{opacity:0.1, scale:2}: {opacity:0,scale:1}}
@@ -40,7 +40,7 @@ const ProjectCard = ({ project }) => (
     <img
       src={project.image}
       alt={project.name}
-      className="w-full md:h-48 h-32   "
+      className="md:w-full md:h-48 h-32 w-auto  "
 
       style={{
         backgroundImage: `linear-gradient(40deg,rgba(0,0,0,0.8), rgba(0,0,0,0.7))`
@@ -94,7 +94,7 @@ const Projects = () => {
     
     >
      <div
-  className="pt-12 bg-gradient-to-tr m-0 p-8 min-h-screen"
+  className="pt-12 bg-gradient-to-tr m-0 p-8 h-2/3 md:h-1/2 lg:min-h-screen"
   id="Projects"
   style={{
     backgroundImage: `linear-gradient(40deg,rgba(0,0,0,0.8), rgba(0,0,0,0.7)), url(${bg3})`,
