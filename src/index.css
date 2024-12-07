@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-shadow{
+   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+#navbar {
+    position: relative;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .sticky-navbar {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(to right, rgba(39, 39, 40, 1), rgba(39, 39, 40, 0.9));
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease-in-out;
+  }
+   
+
+  /* Custom styles for slick slider navigation buttons */
+ 
+
+.slick-prev:before, .slick-next:before {
+  font-size: 40px !important; /* Adjust the size of the arrows */
+  color: transparent !important; /* Make the default color transparent */
+  background-image: linear-gradient(to right, rgb(224, 211, 211), rgb(175, 175, 210)) !important; /* Apply the gradient */
+  -webkit-background-clip: text !important; /* Clip the background to text */
+  background-clip: text !important; 
+  font-weight: 900 !important;
+}
+ 
+.slick-prev:before{
+  content: "\276E" !important;
+
+}
+
+.slick-next:before{
+  content: "\276F" !important;
+}
+ 
+.slick-prev {
+   margin-top: -30px !important;
+  left: -40px !important;  /* Adjust position of the previous button */
+}
+
+.slick-next {
+  margin-top: -30px !important;
+  right: -20px !important;  /* Adjust position of the next button */
+}
+
+  
