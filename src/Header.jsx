@@ -8,6 +8,7 @@ import Service from "./Service";
 import Projects from "./Projects";
 import Contact from './Contact';
 import Footer from "./Footer";
+import Designs from "./Designs";
 
 
 function Header() {
@@ -44,7 +45,9 @@ function Header() {
     { name: "About us", href: '#About'  },
     { name: "Services", href: '#Service' },
     { name: "Projects", href: '#Projects' },
+    {name : "Our Visuals", href : '#Designs'},
     { name: "Contact us", href: "#Contact" },
+
   ];
 
   return (
@@ -104,6 +107,7 @@ function Header() {
         <Our_Team />
         <Service />
         <Projects />
+       <Designs />
         <Contact />
         <Footer />
       </div>

@@ -153,7 +153,7 @@ viewport={{once:true}}>
                 <div className="flex items-center mb-4">
                   <FaPhoneAlt className="text-2xl mr-3 " />
                   <a href="tel:+94787987255" target='_blank'>
-                  <span className="text-lg sm:text-sm md:text-lg text-green-100 text-shadow">+1 123 456 789</span></a>
+                  <span className="text-lg sm:text-sm md:text-lg text-green-100 text-shadow">+94 787 987 255</span></a>
                 </div>
                 <div className="flex items-center mb-4">
                   <FaEnvelope className="text-2xl mr-3" />
