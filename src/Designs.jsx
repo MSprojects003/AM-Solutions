@@ -14,6 +14,7 @@ import post4 from "./assets/pic4.jpg"
 import post5 from "./assets/pic 5.jpg"
 import post7 from "./assets/pic 7.jpg"
 import bg6 from "./assets/bg6.jpg"
+import Topic from "./Topic"
 
 // Sample project data with the actual imported images
 const designs = [
@@ -75,26 +76,40 @@ const Modal = ({ isOpen, onClose, imageSrc }) => {
 
 const PostCard = ({ post, onImageClick }) => {
   const isDesktop = useIsDesktop()
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   return (
     <div className="m-10">
-      <div className="bg-transparent flex justify-center items-center w-full overflow-hidden md:shadow-none md:shadow-[rgba(23,24,23,0.67)] hover:scale-105 transition-transform duration-300">
+      <div className="bg-transparent flex justify-center items-center w-full overflow-hidden md:shadow-none hover:scale-105 transition-transform duration-300">
         <motion.div
-          initial={isDesktop ? { opacity: 0.1, scale: 2 } : { opacity: 0, scale: 1 }}
-          transition={isDesktop ? { duration: 1.5 } : { duration: 1.7 }}
-          whileInView={isDesktop ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1.3 }}
+          initial={isDesktop ? { opacity: 0.1, scale: 0.4 } : { opacity: 0, scale: 0.6 }}
+          transition={isDesktop ? { duration: 0.7 } : { duration: 0.75}}
+          whileInView={isDesktop ? { opacity: 1, scale: 1 } : { opacity: 1, scale: 1 }}
           viewport={{ once: false }}
           className="flex justify-center items-center w-full"
         >
-          <img
-            src={post.image || "/placeholder.svg"}
-            alt={post.name || "Design image"}
-            className="md:w-full md:h-48 h-40 w-auto object-cover cursor-pointer"
-            style={{
-              backgroundImage: `linear-gradient(40deg,rgba(0,0,0,0.8), rgba(0,0,0,0.7))`,
-            }}
-            onClick={() => onImageClick(post.image)}
-          />
+          {/* Image container with fixed aspect ratio and blur effect */}
+          <div className="relative w-full h-0 pb-[100%] md:w-56 md:h-56 overflow-hidden rounded-lg group">
+            {/* Blurred background overlay */}
+            <div className="absolute inset-0 backdrop-blur-md bg-white/10 group-hover:backdrop-blur-sm transition-all duration-300"></div>
+
+            <img
+              src={post.image || "/placeholder.svg"}
+              alt={post.name || "Design image"}
+              className={`absolute inset-0 w-full h-full object-contain cursor-pointer transition-all duration-300 ${
+                imageLoaded ? "opacity-100" : "opacity-0"
+              } group-hover:scale-105`}
+              onClick={() => onImageClick(post.image)}
+              onLoad={() => setImageLoaded(true)}
+            />
+
+            {/* Placeholder while image loads */}
+            {!imageLoaded && (
+              <div className="absolute inset-0 flex items-center justify-center bg-gray-200/20 backdrop-blur-lg animate-pulse">
+                <span className="sr-only">Loading...</span>
+              </div>
+            )}
+          </div>
         </motion.div>
       </div>
       <div className="p-5">
@@ -164,11 +179,7 @@ const Designs = () => {
             whileInView={{ opacity: 1, translateY: 0 }}
             viewport={{ once: true }}
           >
-            <div className="pb-12">
-              <h2 className="text-4xl font-bold text-center">
-                <span className="text-white">Our</span> <span className="text-green-400">Visuals</span>
-              </h2>
-            </div>
+            <Topic head1="Our" head2="Visuals ..." />
           </motion.div>
           <div className="px-4 md:px-24">
             <motion.div
